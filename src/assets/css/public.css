@@ -1,0 +1,43 @@
+/* 重置样式 */
+*{padding:0;margin:0;box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;}
+html,body{font-family:'微软雅黑';font-size:12px; color:#000;height:100%;-webkit-text-size-adjust:none;-webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;position:relative;background:#d9d9d9}
+ul{list-style:none;}
+img{border:0;vertical-align:middle;}
+a{color:#000;text-decoration:none;-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-transition:.5s;transition:.5s;-moz-transition:.5s;-ms-transition:.5s;-o-transition:.5s;}
+a:hover{text-decoration:none;} 
+input[type="button"],input[type="submit"],input[type="reset"],input[type="text"],input[type="password"]{-webkit-appearance:none;font-family:Arial;font-family:'微软雅黑';}
+input[type="button"],input[type="submit"],input[type="reset"]{ cursor: pointer;font-family:'微软雅黑';border:none;}
+input:focus{border:1px solid #e2e2e2;outline:none;}
+input[type="button"]:focus,input[type="submit"]:focus,input[type="reset"]:focus{border:none;}
+h1,h2,h3,h4,h5,h6{font-weight:normal;}
+
+::selection{background:#fb6362;color:white;}
+::-moz-selection{background:#fb6362;color:white;}
+::-webkit-selection{background:#fb6362;color:white;}
+
+
+/* 通用样式 */
+.clearfix{*zoom:1;}
+.clearfix:before{display:table;content:"";}
+.clearfix:after{clear:both;display:block;content:"";height:0;overflow:hidden;visibility:hidden;}
+
+.fl{float:left;display:inline;}
+.fr{float:right;display:inline;}
+.clear{clear:both;}
+
+.body-o{overflow:hidden;}
+
+.copy img{display:inline-block;vertical-align:middle;margin-top:-3px;margin-left:10px;}
+
+@font-face {
+    font-family: 'fzlantingheis-ul-gbregular';
+    src: url('../font/_-webfont.eot');
+    src: url('../font/_-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/_-webfont.woff2') format('woff2'),
+         url('../font/_-webfont.woff') format('woff'),
+         url('../font/_-webfont.ttf') format('truetype'),
+         url('../font/_-webfont.svg#fzlantingheis-ul-gbregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
