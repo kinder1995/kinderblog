@@ -6,8 +6,14 @@
             <el-container>
                 <el-main>
                     <el-row>
-                        <el-col :span="24"><i class="el-icon-info"></i></el-col>
-                    </el-row>主题内容
+                        <el-col :span="24">
+                            <el-card class="box-card">
+                                <div v-for="o in 4" :key="o" class="text item">
+                                    {{'列表'+o}}
+                                </div>
+                            </el-card>
+                        </el-col>
+                    </el-row>
                     <el-row>
                         <el-col :span="24"><div class="grid-content bg-purple-dark"></div></el-col>
                     </el-row>
