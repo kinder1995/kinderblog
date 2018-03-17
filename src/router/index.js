@@ -3,9 +3,9 @@
 
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import index from '@/components/index'
 import Detail from '@/components/detail'   // 需要加载的组件
+import Test from '@/components/test'
 
 Vue.use(Router);
 

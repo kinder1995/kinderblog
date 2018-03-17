@@ -76,52 +76,52 @@
 </template>
 
 <script>
-      import axios from 'axios';
-      import Vue from 'vue';
+    import axios from 'axios';
+    import Vue from 'vue';
 
-      export default {
-            name: 'index',
-            data() {
-                  return {
-                        isA: '',
-                        id: null,
-                        article: {}
-                  }
-            },
-            watch: { // 观察数据，在id变化时调用闭包
-                  id: function (value) {
-                        if (value) {
-                              this.getArticle();
-                        }
-                  }
-            },
-            created() { // 组件创建完成的回调，此时组件还没渲染 顺序是 beforeCreate > created > beforeMounte > mounted
-                  this.id = this.$route.params.detail_id; // 在组件创建完成之后，把url参数中的id复制给id变量
-            },
-            methods: {
-                  toggle: function () {
-                        this.isA = !this.isA;
-                  },
-                  getArticle() {
-                        axios.get('https://www.kinder.vip/api/Index/getNews', {
-                              params: {
-                                    id: this.id
-                              }
-                        })
-                              .then(response => {
-                                    this.article = response.data.info;
-                                    console.log(response.data);
-                              })
-                              .catch(error => {
-                                    console.log(error);
-                              });
-                  }
+    export default {
+        name: 'index',
+        data() {
+            return {
+                isA: '',
+                id: null,
+                article: {}
             }
-      }
+        },
+        watch: { // 观察数据，在id变化时调用闭包
+            id: function (value) {
+                if (value) {
+                    this.getArticle();
+                }
+            }
+        },
+        created() { // 组件创建完成的回调，此时组件还没渲染 顺序是 beforeCreate > created > beforeMounte > mounted
+            this.id = this.$route.params.detail_id; // 在组件创建完成之后，把url参数中的id复制给id变量
+        },
+        methods: {
+            toggle: function () {
+                this.isA = !this.isA;
+            },
+            getArticle() {
+                axios.get('https://www.kinder.vip/api/Index/getNews', {
+                    params: {
+                        id: this.id
+                    }
+                })
+                .then(response => {
+                    this.article = response.data.info;
+                    console.log(response.data);
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+            }
+        }
+    }
 
 </script>
 <style>
-      @import '../assets/css/animate.css';
-      @import '../assets/css/public.css';
-      @import '../assets/css/kinder.css';
+    @import '../assets/css/animate.css';
+    @import '../assets/css/public.css';
+    @import '../assets/css/kinder.css';
 </style>
