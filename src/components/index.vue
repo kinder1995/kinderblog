@@ -7,19 +7,22 @@
                 <el-main>
                     <el-row>
                         <el-col :span="24">
-                            <el-card class="box-card">
-                                <div v-for="o in 4" :key="o" class="text item">
-                                    {{'列表'+o}}
-                                </div>
-                            </el-card>
+                            <template v-for="item in list">
+                                <el-card class="box-card">
+                                    <div slot="header" class="clearfix">
+                                        <router-link :to="{name:'Detail',params:{detail_id:item.id}}">{{item.title}}</router-link>
+                                    </div>
+                                    <div class="describe" v-html="item.abstract"></div>
+                                    <div class="bottom clearfix">
+                                        <div class="fl">
+                                            <div class="fl">{{item.create_time}}</div>
+                                            <div class="fl" v-for="labels in item.label">{{labels.label}}</div>
+                                        </div>
+                                        <div class="fr"><router-link class="el-button el-button--primary" :to="{name:'Detail',params:{detail_id:item.id}}">阅读全文</router-link></div>
+                                    </div>
+                                </el-card>
+                            </template>
                         </el-col>
-                    </el-row>
-                    <el-row>
-                        <el-col :span="24"><div class="grid-content bg-purple-dark"></div></el-col>
-                    </el-row>
-                    <el-row>
-                        <el-col :span="12"><div class="grid-content bg-purple"></div></el-col>
-                        <el-col :span="12"><div class="grid-content bg-purple-light"></div></el-col>
                     </el-row>
                 </el-main>
                 <el-footer>尾部</el-footer>
@@ -29,6 +32,9 @@
 </template>
 
 <script>
+    import axios from 'axios';
+    import Vue from 'vue';
+
     export default {
         name: 'index',
         data () {
@@ -37,39 +43,25 @@
             }
         },
         mounted() {  // 渲染后的回调
-
+            this.getData();
         },
         methods:{
-
+            getData(){
+                axios.get('https://www.kinder.vip/api/Index/getList')
+                    .then(response => {
+                        this.list = response.data.info;
+                        console.log(response.data.id);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
+            }
         }
     }
 </script>
 <style>
     @import '../assets/css/public.css';
-    .el-row {
-        margin-bottom: 20px;
-        &:last-child {
-             margin-bottom: 0;
-         }
-    }
-    .el-col {
-        border-radius: 4px;
-    }
-    .bg-purple-dark {
-        background: #99a9bf;
-    }
-    .bg-purple {
-        background: #d3dce6;
-    }
-    .bg-purple-light {
-        background: #e5e9f2;
-    }
-    .grid-content {
-        border-radius: 4px;
-        min-height: 36px;
-    }
-    .row-bg {
-        padding: 10px 0;
-        background-color: #f9fafc;
-    }
+    .box-card{margin-bottom:30px;}
+    .box-card .el-card__header{font-size:18px;}
+    .box-card .bottom{margin-top:15px;}
 </style>
