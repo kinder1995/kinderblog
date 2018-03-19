@@ -1,9 +1,9 @@
 <template>
     <el-container>
-        <el-header>头部</el-header>
-        <el-container>
-            <el-aside>左边</el-aside>
-            <el-container>
+        <my-header></my-header>
+        <el-container class="body-container">
+            <my-aside></my-aside>
+            <el-container class="right-container tran300" :class="{'on':isA }">
                 <el-main>
                     <el-row>
                         <el-col :span="24">
@@ -14,7 +14,7 @@
                                     </div>
                                     <div class="describe" v-html="item.abstract"></div>
                                     <div class="bottom clearfix">
-                                        <div class="fl">
+                                        <div class="fl left">
                                             <div class="fl">{{item.create_time}}</div>
                                             <div class="fl" v-for="labels in item.label">{{labels.label}}</div>
                                         </div>
@@ -23,9 +23,11 @@
                                 </el-card>
                             </template>
                         </el-col>
+                        <el-col :span="24">
+                            <my-footer></my-footer>
+                        </el-col>
                     </el-row>
                 </el-main>
-                <el-footer>尾部</el-footer>
             </el-container>
         </el-container>
     </el-container>
@@ -39,8 +41,15 @@
         name: 'index',
         data () {
             return {
+                isA:'',
                 list:[]  // 存数据的变量
             }
+        },
+        created:function(){
+            this.eventBus.$on('menuToggle', (status) => {
+                console.log(status, 'On aside component');
+                this.isA = status;
+            });
         },
         mounted() {  // 渲染后的回调
             this.getData();
@@ -55,13 +64,14 @@
                     .catch(error => {
                         console.log(error);
                     })
+            },
+            menuToggle() {
+                this.isA = !this.isA;
+                this.eventBus.$emit('menuToggle', this.isA);
             }
         }
     }
 </script>
 <style>
     @import '../assets/css/public.css';
-    .box-card{margin-bottom:30px;}
-    .box-card .el-card__header{font-size:18px;}
-    .box-card .bottom{margin-top:15px;}
 </style>
