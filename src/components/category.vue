@@ -1,6 +1,6 @@
 <template>
     <el-container>
-        <my-header></my-header>
+        <my-header>12</my-header>
         <el-container class="body-container">
             <my-aside></my-aside>
             <el-container class="right-container tran300" :class="{'on':isA}">
@@ -10,7 +10,8 @@
                             <template v-for="item in list">
                                 <el-card class="box-card">
                                     <div slot="header" class="clearfix">
-                                        <router-link :to="{name:'Detail',params:{detail_id:item.id}}">{{item.title}}</router-link>
+                                        <router-link :to="{name:'Detail',params:{detail_id:item.id}}">{{item.title}}
+                                        </router-link>
                                     </div>
                                     <div class="describe" v-html="item.abstract"></div>
                                     <div class="bottom clearfix">
@@ -18,7 +19,11 @@
                                             <div class="fl">{{item.create_time}}</div>
                                             <div class="fl" v-for="labels in item.label">{{labels.label}}</div>
                                         </div>
-                                        <div class="fr"><router-link class="el-button el-button--primary" :to="{name:'Detail',params:{detail_id:item.id}}">阅读全文</router-link></div>
+                                        <div class="fr">
+                                            <router-link class="el-button el-button--primary"
+                                                         :to="{name:'Detail',params:{detail_id:item.id}}">阅读全文
+                                            </router-link>
+                                        </div>
                                     </div>
                                 </el-card>
                             </template>
@@ -48,6 +53,7 @@
         created: function () {
             this.eventBus.$on('menuToggle', (status) => {
                 console.log(status, 'On aside component');
+                this.id = this.$route.params.id;
                 this.isA = status;
             });
         },
@@ -73,6 +79,6 @@
     }
 </script>
 
-<style scoped>
-
+<style>
+    @import '../assets/css/public.css';
 </style>

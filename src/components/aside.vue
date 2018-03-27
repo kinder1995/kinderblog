@@ -9,10 +9,10 @@
                         <span slot="title">首页</span>
                     </el-menu-item>
                     <el-menu-item index="2">
-                        <span slot="title"><router-link :to="{path:'/Category'}">工作日记</router-link></span>
+                        <span slot="title"><router-link :to="{name:'Category',params:{id:4}}">工作日记</router-link></span>
                     </el-menu-item>
                     <el-menu-item index="3">
-                        <span slot="title">前端技术</span>
+                        <span slot="title"><router-link :to="{name:'Category',params:{id:3}}">前端技术</router-link></span>
                     </el-menu-item>
                     <el-menu-item index="4">
                         <span slot="title">关于KINDER</span>
@@ -25,9 +25,9 @@
 <script>
     export default {
         name: 'index',
-        data () {
+        data() {
             return {
-                isA:'',
+                isA: '',
             }
         },
         created: function () {

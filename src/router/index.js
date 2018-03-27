@@ -21,14 +21,9 @@ export default new Router({
             name: 'Detail',  // 路由名称
             component: Detail
         },
-        // {
-        //     path: '/categories/{id}/posts',
-        //     name: 'Category',  // 路由名称
-        //     component: Category
-        // },
         {
-            path: '/categories',
-            name: 'Category',  // 路由名称
+            path: '/categories/:id/posts',
+            name: 'Category',
             component: Category
         }
     ]
