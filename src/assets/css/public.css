@@ -67,6 +67,10 @@ h1,h2,h3,h4,h5,h6{font-weight:normal;}
 .el-aside.on{left:0;}
 .el-aside .el-menu,.el-aside .tac{position:absolute;left:0;width:100%;height:100%;}
 
+.el-aside .el-menu li a {
+    display: block;
+}
+
 .right-container{margin-left:0px;}
 .right-container.on{margin-left:220px;}
 .box-card{margin-bottom:30px;}
