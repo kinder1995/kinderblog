@@ -1,6 +1,6 @@
 <template>
     <el-container>
-        <my-header>12</my-header>
+        <my-header></my-header>
         <el-container class="body-container">
             <my-aside></my-aside>
             <el-container class="right-container tran300" :class="{'on':isA}">
@@ -62,7 +62,11 @@
         },
         methods: {
             getData() {
-                axios.get('https://www.kinder.vip/api/Index/getList', {})
+                axios.get('https://www.kinder.vip/api/Index/getList', {
+                    params: {
+                        id: this.id
+                    }
+                })
                     .then(response => {
                         this.list = response.data.info;
                         console.log(response.data.id);

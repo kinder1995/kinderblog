@@ -41,7 +41,7 @@
         data () {
             return {
                 isA:'',
-                list:[]  // 存数据的变量
+                list: [], // 存数据的变量
             }
         },
         created:function(){
@@ -72,5 +72,6 @@
     }
 </script>
 <style>
+    @import '../assets/css/animate.min.css';
     @import '../assets/css/public.css';
 </style>
