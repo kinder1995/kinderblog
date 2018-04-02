@@ -52,7 +52,6 @@
         },
         created: function () {
             this.eventBus.$on('menuToggle', (status) => {
-                console.log(status, 'On aside component');
                 this.id = this.$route.params.id;
                 this.isA = status;
             });
@@ -69,7 +68,6 @@
                 })
                     .then(response => {
                         this.list = response.data.info;
-                        console.log(response.data.id);
                     })
                     .catch(error => {
                         console.log(error);

@@ -32,7 +32,6 @@
         },
         created: function () {
             this.eventBus.$on('menuToggle', (status) => {
-                console.log(status, 'On aside component');
                 this.isA = status;
             });
         },
@@ -42,6 +41,5 @@
                 this.eventBus.$emit('menuToggle', this.isA);
             }
         }
-
     }
 </script>

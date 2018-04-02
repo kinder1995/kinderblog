@@ -6,13 +6,14 @@ import Router from 'vue-router'
 import index from '@/components/index'
 import Detail from '@/components/detail'
 import Category from '@/components/category'
+import About from '@/components/about'
 
 Vue.use(Router);
 
 export default new Router({
     routes: [
         {
-            path: '/index',
+            path: '/',
             name: 'index',
             component: index
         },
@@ -25,6 +26,11 @@ export default new Router({
             path: '/categories/:id/posts',
             name: 'Category',
             component: Category
+        },
+        {
+            path: '/about',
+            name: 'About',
+            component: About
         }
     ]
 })

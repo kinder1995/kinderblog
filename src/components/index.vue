@@ -46,7 +46,6 @@
         },
         created:function(){
             this.eventBus.$on('menuToggle', (status) => {
-                console.log(status, 'On aside component');
                 this.isA = status;
             });
         },
@@ -58,7 +57,6 @@
                 axios.get('https://www.kinder.vip/api/Index/getList')
                     .then(response => {
                         this.list = response.data.info;
-                        console.log(response.data.id);
                     })
                     .catch(error => {
                         console.log(error);
