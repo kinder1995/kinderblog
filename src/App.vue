@@ -1,6 +1,12 @@
 <template>
     <div id="app">
-        <router-view/>
+        <transition
+            name="custom"
+            enter-active-class="animated fadeIn"
+            leave-active-class="animated fadeOut"
+            :duration="{enter:100,leave:300}">
+            <router-view/>
+        </transition>
     </div>
 </template>
 

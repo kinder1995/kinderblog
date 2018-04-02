@@ -1,12 +1,12 @@
 <template>
-    <el-aside width="220px" class="tran300" :class="{'on':isA}">
+    <el-aside width="150px" class="tran300" :class="{'on':isA}">
         <el-row class="tac">
             <el-col :span="24" :xs="12">
                 <el-menu
                     default-active="1"
                     class="el-menu-vertical-demo">
                     <el-menu-item index="1">
-                        <span slot="title">首页</span>
+                        <span slot="title"><router-link :to="{name:'index'}">首页</router-link></span>
                     </el-menu-item>
                     <el-menu-item index="2">
                         <span slot="title"><router-link :to="{name:'Category',params:{id:4}}">工作日记</router-link></span>
@@ -15,7 +15,7 @@
                         <span slot="title"><router-link :to="{name:'Category',params:{id:3}}">前端技术</router-link></span>
                     </el-menu-item>
                     <el-menu-item index="4">
-                        <span slot="title">关于KINDER</span>
+                        <span slot="title"><router-link :to="{name:'About'}">关于KINDER</router-link></span>
                     </el-menu-item>
                 </el-menu>
             </el-col>
@@ -32,7 +32,6 @@
         },
         created: function () {
             this.eventBus.$on('menuToggle', (status) => {
-                console.log(status, 'On aside component');
                 this.isA = status;
             });
         },
@@ -42,6 +41,5 @@
                 this.eventBus.$emit('menuToggle', this.isA);
             }
         }
-
     }
 </script>

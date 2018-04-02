@@ -41,12 +41,11 @@
         data () {
             return {
                 isA:'',
-                list:[]  // 存数据的变量
+                list: [], // 存数据的变量
             }
         },
         created:function(){
             this.eventBus.$on('menuToggle', (status) => {
-                console.log(status, 'On aside component');
                 this.isA = status;
             });
         },
@@ -58,7 +57,6 @@
                 axios.get('https://www.kinder.vip/api/Index/getList')
                     .then(response => {
                         this.list = response.data.info;
-                        console.log(response.data.id);
                     })
                     .catch(error => {
                         console.log(error);
@@ -72,5 +70,6 @@
     }
 </script>
 <style>
+    @import '../assets/css/animate.min.css';
     @import '../assets/css/public.css';
 </style>
